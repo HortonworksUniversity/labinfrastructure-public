@@ -8,6 +8,9 @@
 ## The above keys are provided via jenkins gui job config 
 ############################################################################
 
+export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY
+export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_KEY
+
 export EC2_HOME=/var/lib/jenkins/workspace/ec2-api-tools/
 export JAVA_HOME=/usr/
 PATH=$PATH:$EC2_HOME/bin
