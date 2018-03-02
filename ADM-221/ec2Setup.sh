@@ -21,6 +21,8 @@ PATH=$PATH:$AWS_CLI_HOME/bin
 # AMI2: Optional MIT-KDC for xrealm auth
 # AMI3: Optional WinAD for xrealm auth 
 
+echo $LOCATION
+
 if [[ "$LOCATION" == "US West" ]]; then
 	export AWS_DEFAULT_REGION=us-west-2
         export EC2_URL=https://ec2.us-west-2.amazonaws.com
