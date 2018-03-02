@@ -177,7 +177,7 @@ function collectClusterInfo {
 my_instances=""
 cluster_instance=$FIRST_CLUSTER_LABEL
 
-for (( i=1; i<=$NO_OF_VMs; ++i )); do
+for (( i=1; i<=1; ++i )); do
   LONG_CLUSTER_TAG=$CLUSTER_TAG"-"$cluster_instance
   FLAG=""
     while [ "$FLAG" != "CREATE_COMPLETE" ]; do
