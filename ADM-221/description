@@ -1,0 +1,29 @@
+###############################################################################################
+AWS Cluster(s) Detail 
+###############################################################################################
+
+
+NOTE: IT TAKES ALMOST 10 MINUTES TO CONFIGURE these VMs. PLEASE WAIT AT LEAST 10 MINUTES BEFORE YOU TRY TO CONNECT TO THE VMs.
+
+TRAINING NAME  : HDP-Ops-Metron-JMK-Test
+LOCATION  : US West
+Terminate After(in Days)  : Do Not Terminate
+Created By  : mkiser (Mark Kiser)
+
+For SSH: use provided training-keypair
+User ID: centos
+
+
+EC2 IP Address(es): 
+ : : /
+ : : /
+ : : /
+ : : /
+ : : / 
+ HDP-Ops-Metron-JMK-Test-100 : AdditionalNodes : ec2-34-209-214-234.us-west-2.compute.amazonaws.com / ip-172-30-8-34.us-west-2.compute.internal
+ HDP-Ops-Metron-JMK-Test-100 : AdditionalNodes : ec2-34-212-171-23.us-west-2.compute.amazonaws.com / ip-172-30-11-183.us-west-2.compute.internal
+ HDP-Ops-Metron-JMK-Test-100 : AdditionalNodes : ec2-35-161-20-232.us-west-2.compute.amazonaws.com / ip-172-30-10-68.us-west-2.compute.internal
+ HDP-Ops-Metron-JMK-Test-100 : AdditionalNodes : ec2-35-167-79-239.us-west-2.compute.amazonaws.com / ip-172-30-9-145.us-west-2.compute.internal
+ HDP-Ops-Metron-JMK-Test-100 : AmbariNode----- : ec2-54-218-20-39.us-west-2.compute.amazonaws.com / ip-172-30-11-125.us-west-2.compute.internal
+ HDP-Ops-Metron-JMK-Test     : MIT-KDC-XREALM  : ec2-34-212-135-76.us-west-2.compute.amazonaws.com / ip-172-30-13-50.us-west-2.compute.internal 
+ HDP-Ops-Metron-JMK-Test     : AD-XREALM       : ec2-54-187-8-64.us-west-2.compute.amazonaws.com / ip-172-30-8-110.us-west-2.compute.internal 
