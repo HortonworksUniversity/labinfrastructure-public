@@ -21,7 +21,7 @@ PATH=$PATH:$AWS_CLI_HOME/bin
 # AMI2: Optional MIT-KDC for xrealm auth
 # AMI3: Optional WinAD for xrealm auth 
 
-if [ "$LOCATION" == "US West" ]; then
+if [[ "$LOCATION" == "US West" ]]; then
 	export AWS_DEFAULT_REGION=us-west-2
         export EC2_URL=https://ec2.us-west-2.amazonaws.com
 	      export AMI=ami-0e3fde6e
@@ -29,42 +29,42 @@ if [ "$LOCATION" == "US West" ]; then
         export AMI3=ami-f8574281
 
 
-elif [ "$LOCATION" == "Ireland" ]; then
+elif [[ "$LOCATION" == "Ireland" ]]; then
 	export AWS_DEFAULT_REGION=eu-west-1
 	export EC2_URL=https://ec2.eu-west-1.amazonaws.com
 	export AMI=ami-ab3cbdd8
   export AMI2=ami-2bc12d52
   export AMI3=ami-2ec12d57
 
-elif [ "$LOCATION" == "Frankfurt" ]; then
+elif [[ "$LOCATION" == "Frankfurt" ]]; then
         export EC2_URL=https://ec2.eu-central-1.amazonaws.com
         export AMI=ami-fa549295
         export AMI2=ami-ca46f4a5
         export AMI3=ami-b04af8df
         export AWS_DEFAULT_REGION=eu-central-1
 
-elif [ "$LOCATION" == "Singapore" ]; then
+elif [[ "$LOCATION" == "Singapore" ]]; then
 	export AWS_DEFAULT_REGION=ap-southeast-1
 	export EC2_URL=https://ec2.ap-southeast-1.amazonaws.com
 	export AMI=ami-30fa2c53
   export AMI2=ami-d78bf7b4
   export AMI3=ami-438af620
 
-elif [ "$LOCATION" == "Seoul" ]; then
+elif [[ "$LOCATION" == "Seoul" ]]; then
         export EC2_URL=https://ec2.ap-northeast-2.amazonaws.com
         export AMI=ami-0270a66c
         export AMI2=ami-7f09d311
         export AMI3=ami-7e09d310
         export AWS_DEFAULT_REGION=ap-northeast-2
 
-elif [ "$LOCATION" == "Sydney" ]; then
+elif [[ "$LOCATION" == "Sydney" ]]; then
         export AWS_DEFAULT_REGION=ap-southeast-2
         export EC2_URL=https://ec2.ap-southeast-2.amazonaws.com
         export AMI=ami-80d3c8e3
         export AMI2=ami-dba447b9
         export AMI3=ami-b7aa49d5
 
-elif [ "$LOCATION" == "Mumbai" ]; then
+elif [[ "$LOCATION" == "Mumbai" ]]; then
         export EC2_URL=https://ec2.ap-south-1.amazonaws.com
         export AMI=ami-e6f2b189
         export AMI2=ami-9cf3b0f3
@@ -241,7 +241,7 @@ for ((i=0; i<${#my_instances2[@]}; ++i)); do
    temp_logical_id=`ec2din -region $AWS_DEFAULT_REGION -F "instance-id=${my_instances2[$i]}" | grep aws:cloudformation:logical-id | cut -f5`;
 
 
-   if [ "$temp_logical_id" == "AmbariNode" ] ; then
+   if [[ "$temp_logical_id" == "AmbariNode" ]] ; then
       temp_logical_id="${temp_logical_id}-----";
    fi
 
