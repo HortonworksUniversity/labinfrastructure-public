@@ -273,25 +273,6 @@ fi
 
 echo "$final_hosts"
 
-
-  echo ""
-  echo ""
-  echo "###############################################################################################" > $WORKSPACE/description
-  echo "AWS Cluster(s) Detail " >> $WORKSPACE/description
-  echo "###############################################################################################" >> $WORKSPACE/description
-  echo -e "\n\nNOTE: IT TAKES ALMOST 10 MINUTES TO CONFIGURE these VMs. PLEASE WAIT AT LEAST 10 MINUTES BEFORE YOU TRY TO CONNECT TO THE VMs.\n" >> $WORKSPACE/description
-  echo "TRAINING NAME  : $CLUSTER_TAG" >> $WORKSPACE/description
-  echo "LOCATION  : $LOCATION" >> $WORKSPACE/description
-  echo "Terminate After(in Days)  : $KILL_AFTER_HOW_MANY_DAYS" >> $WORKSPACE/description
-  echo "Created By  : $BUILD_USER_ID ($BUILD_USER)" >> $WORKSPACE/description
-  echo -e "\nFor SSH: use provided training-keypair\nUser ID: centos" >> $WORKSPACE/description
-  echo -e "\n\nEC2 IP Address(es): \n$final_hosts" >> $WORKSPACE/description
-  if [ "$KILL_AFTER_HOW_MANY_DAYS" != "Do Not Terminate" ]; then
-        t_date=`date -d "$KILL_AFTER_HOW_MANY_DAYS days" +"%Y%m%d%H"`
-## terminate functionality disabled for now.  
-#       echo -e "$CLUSTER_TAG:$LOCATION:$t_date:$SEND_EMAIL_TO" >> /var/lib/jenkins/workspace/cron/training_list
-  fi
-
 }
 
 
