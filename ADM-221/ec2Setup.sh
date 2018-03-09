@@ -185,22 +185,19 @@ fi
 function collectClusterInfo {
 
 my_instances=""
-cluster_instance=$FIRST_CLUSTER_LABEL
 
 for (( i=1; i<=1; ++i )); do
-  LONG_CLUSTER_TAG=$CLUSTER_TAG"-"$cluster_instance
   FLAG=""
     while [ "$FLAG" != "CREATE_COMPLETE" ]; do
       sleep 15s	
-      FLAG=`aws cloudformation list-stack-resources --stack-name $LONG_CLUSTER_TAG --output text | grep AdditionalNodes | cut -f5`
+      FLAG=`aws cloudformation list-stack-resources --stack-name $CLUSTER_TAG --output text | grep AdditionalNodes | cut -f5`
     done
 
   ### get instance ids
   sleep 10s
-  my_instances+=`aws cloudformation describe-stack-resource --stack-name $LONG_CLUSTER_TAG --logical-resource-id AmbariNode --output json | grep PhysicalResourceId | awk -F':' '{print $2}' | sed 's|[ "]||g'`
-  my_instances+=`aws autoscaling describe-auto-scaling-groups --no-paginate --output text | grep $LONG_CLUSTER_TAG | grep INSTANCES | cut -f4`
+  my_instances+=`aws cloudformation describe-stack-resource --stack-name $CLUSTER_TAG --logical-resource-id AmbariNode --output json | grep PhysicalResourceId | awk -F':' '{print $2}' | sed 's|[ "]||g'`
+  my_instances+=`aws autoscaling describe-auto-scaling-groups --no-paginate --output text | grep $CLUSTER_TAG | grep INSTANCES | cut -f4`
   my_instances=`echo "$my_instances" | tr '\n' ','`
-  ((cluster_instance = $cluster_instance +1 ))
 
 done
 my_instances=`echo "$my_instances" | sed 's/,$//'`
