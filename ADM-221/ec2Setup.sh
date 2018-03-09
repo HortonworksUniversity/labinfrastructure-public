@@ -94,11 +94,10 @@ if [[ $SEC_GROUP ]]; then
   
   if [[ "$SEC_GROUP" == "$SEC_GROUP_VERIFY" ]]; then
     echo "$SEC_GROUP is security group"
-  fi
-
-else
-  echo "Problem finding security group"
+  else
+    echo "Problem finding security group"
   exit 1
+  fi
 fi
 
 if [[ $SUBNET ]]; then
