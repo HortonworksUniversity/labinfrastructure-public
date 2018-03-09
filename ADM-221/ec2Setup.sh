@@ -89,7 +89,13 @@ export lab_count=$NO_OF_VMs
 export lab_batch=$NO_OF_ADDTL_NODES
 
 if [[ $SEC_GROUP ]]; then
-  echo "$SEC_GROUP is security group"
+  
+  SEC_GROUP_VERIFY=`aws ec2 describe-security-groups --region $AWS_DEFAULT_REGION --group-ids $SEC_GROUP | jq -r '.SecurityGroups[] | .GroupId'`
+  
+  if [[ "$SEC_GROUP" == "$SEC_GROUP_VERIFY" ]]; then
+    echo "$SEC_GROUP is security group"
+  fi
+
 else
   echo "Problem finding security group"
   exit 1
@@ -103,7 +109,7 @@ else
 fi
 
 echo adding $SEC_GROUP to $SEC_GROUP to allow intra-cluster traffic
-aws ec2 authorize-security-group-ingress --group-id $SEC_GROUP --protocol all --port -1 --source-group $SEC_GROUP
+aws ec2 authorize-security-group-ingress --region $AWS_DEFAULT_REGION --group-id $SEC_GROUP --protocol all --port -1 --source-group $SEC_GROUP
 
 
 
