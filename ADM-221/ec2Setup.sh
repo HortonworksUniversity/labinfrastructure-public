@@ -95,7 +95,7 @@ if [[ $SEC_GROUP ]]; then
   if [[ "$SEC_GROUP" == "$SEC_GROUP_VERIFY" ]]; then
     echo "$SEC_GROUP is security group"
   else
-    echo "Problem finding security group"
+    echo "Problem finding security group in region $AWS_DEFAULT_REGION"
   exit 1
   fi
 fi
