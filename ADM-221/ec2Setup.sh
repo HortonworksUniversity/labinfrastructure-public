@@ -192,9 +192,11 @@ for (( i=1; i<=1; ++i )); do
     while [ "$FLAG" != "CREATE_COMPLETE" ]; do
       sleep 15s	
       FLAG=`aws cloudformation list-stack-resources --stack-name $LONG_CLUSTER_TAG --output text | grep AdditionalNodes | cut -f5`
+      echo $FLAG
     done
 
   ### get instance ids
+  echo "Getting instance ids"
   sleep 10s
   my_instances+=`aws cloudformation describe-stack-resource --stack-name $LONG_CLUSTER_TAG --logical-resource-id AmbariNode --output json | grep PhysicalResourceId | awk -F':' '{print $2}' | sed 's|[ "]||g'`
   my_instances+=`aws autoscaling describe-auto-scaling-groups --no-paginate --output text | grep $LONG_CLUSTER_TAG | grep INSTANCES | cut -f4`
