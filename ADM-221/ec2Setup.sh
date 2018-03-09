@@ -102,6 +102,11 @@ else
   exit 1
 fi
 
+echo adding $SEC_GROUP to $SEC_GROUP to allow intra-cluster traffic
+aws ec2 authorize-security-group-ingress --group-id $SEC_GROUP --protocol all --port -1 --source-group $SEC_GROUP
+
+
+
 ### {"ParameterKey":"AmbariVersion","ParameterValue":"2.5.0.3"},
 export cfn_parameters='
 [
